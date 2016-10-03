@@ -1,0 +1,23 @@
+body {
+    background-color: #555555
+}
+
+.main{
+    background-image: url(../images/garmisch_1.jpg);
+    background-position: center;
+    z-index: -1;
+    }
+
+
+.main h1,p {
+    color: #FFFFFF
+}
+
+.mainpar a {
+    color: #CCCCCC
+}
+
+
+.skills h3, ul {
+    color: #DDDDDD
+}
