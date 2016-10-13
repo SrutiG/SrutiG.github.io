@@ -26,18 +26,43 @@ body {
 }
 
 .main h4, label, a {
-    color: #CCCCCC
+    color: #CCCCCC;
 }
 
 .mainpar a {
-    color: #CCCCCC
+    color: #CCCCCC;
 }
 
 
 .skills h3 {
-    color: #DDDDDD
+    color: #DDDDDD;
 }
 
 .skills ul {
-    color: #BBBBBB
+    color: #BBBBBB;
 }
+
+.project {
+    background-color: #333333;
+}
+
+.project h4 {
+    color: #DDDDDD;
+    text-style: none;
+}
+
+.project:hover {
+    background-color: #AAAAAA;
+}
+
+.project:hover h2, h4 {
+    color: #333333;
+}
+
+
+.description {
+   background-color: #333333;
+}
+
+
+

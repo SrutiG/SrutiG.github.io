@@ -11,6 +11,11 @@
     <link rel= "stylesheet" type= "text/css" href= "static/css/style.css">
 
 
+    <script type="text/javascript" src="static/scripts/jquery.min.js"></script>
+    <script type="text/javascript" src="static/scripts/script.js"></script>
+
+
+</head>
 <body>
 <nav class="navbar navbar-inverse navbar-static-top">
     <div class="container">
@@ -32,41 +37,87 @@
             <h1>Projects</h1>
         </div>
         <div class="projectlist list-group col-md-8 col-md-offset-2">
-            <a href="https://github.com/michaelchen523/allianceDatabase" class="list-group-item">
-                <h3 class="list-group-item-heading">Alliance for Survivor Care Database</h3>
-                <h5>I am working with a team of 5 to create a internal website for organizations that
+            <a href="#" class="list-group-item project" id="proj-one">
+                <h2 class="list-group-item-heading">Alliance for Survivor Care Database</h2>
+                <h4>A website for survivors of sexual exploitation</h4>
+            </a>
+            <div class="list-group-item description" id="desc-one">
+                <div class="row" style="margin-left:3px">
+                    <a href="https://github.com/michaelchen523/allianceDatabase">Github Link</a>
+                </div>
+                <div class="row" style="margin-left:3px">
+                    <a href="#">Website (coming soon)</a>
+                </div>
+                <h4>Description</h4>
+                <p>I am working with a team of 5 to create a internal website for organizations that
                     connects survivors of sexual exploitation to resources in the area. We are using the Flask framework, Bootstrap, and
-                    Javascript to create a user-friendly website for the organizations.</h5>
+                    Javascript to create a user-friendly website for the organizations.</p>
+            </div>
+            <a href="#" class="list-group-item project" id="proj-two">
+                <h2 class="list-group-item-heading">Clean Water Crowdsourcing</h2>
+                <h4>A JavaFX app that stores and displays water sources</h4>
             </a>
-            <a href="https://github.gatech.edu/kstites3/SRAT/tree/master" class="list-group-item">
-                <h3 class="list-group-item-heading">Clean Water Crowdsourcing</h3>
-                <h5>This is a JavaFX application that displays a map of available water sources in the
+            <div class="list-group-item description" id="desc-two">
+                <div class="row" style="margin-left:3px">
+                    <a href="https://github.gatech.edu/kstites3/SRAT/tree/master">Github Link</a>
+                </div>
+                <h4>Description</h4>
+                <p>This is a JavaFX application that displays a map of available water sources in the
                     area. Users can submit water source reports, and workers and managers can submit water purity reports. I am working together
-                    with a team of 5 to create this app.</h5>
+                    with a team of 5 to create this app.</p>
+            </div>
+            <a href="#" class="list-group-item project" id="proj-three">
+                <h2 class="list-group-item-heading">Ballerz Meet</h2>
+                <h4>An android application that connects users to pickup basketball games around them</h4>
             </a>
-            <a href="https://github.com/SrutiG/BallersMeet" class="list-group-item">
-                <h3 class="list-group-item-heading">Ballerz Meet</h3>
-                <h5>During HackGT 2016, me and a friend of mine decided to make an Android application that connects
+            <div class="list-group-item description" id="desc-three">
+                <div class="row" style="margin-left:3px">
+                    <a href="https://github.com/SrutiG/BallersMeet">Github Link</a>
+                </div>
+                <h4>Description</h4>
+                <p>During HackGT 2016, me and a friend of mine decided to make an Android application that connects
                     people to pickup basketball games in the area. We had a demoable prototype by the end of the hackathon, and we are
-                    now working on implementing a database and a better navigation bar.</h5>
+                    now working on implementing a database and a better navigation bar.</p>
+            </div>
+            <a href="#" class="list-group-item project" id = "proj-four">
+                <h2 class="list-group-item-heading">Simple GPA Calculator</h2>
+                <h4>A GPA calculator made using Python and Tkinter</h4>
             </a>
-            <a href="https://github.com/SrutiG/simple-gpa-calc" class="list-group-item">
-                <h3 class="list-group-item-heading">Simple GPA Calculator</h3>
-                <h5>This is a basic GPA calculator I made using Python and Tkinter that allows
+            <div class="list-group-item description" id="desc-four">
+                <div class="row" style="margin-left:3px">
+                    <a href="https://github.com/SrutiG/simple-gpa-calc">Github Link</a>
+                </div>
+                <h4>Description</h4>
+                <p>This is a basic GPA calculator I made using Python and Tkinter that allows
                     the user to enter the number of semesters they have completed, enter his/her class information for each
-                    semester and find out his/her overall GPA.</h5>
+                    semester and find out his/her overall GPA.</p>
+            </div>
+            <a href="#" class="list-group-item project" id="proj-five">
+                <h2 class="list-group-item-heading">This Website</h2>
+                <h4>A personal website that shows my interests and skills</h4>
             </a>
-            <a href="https://github.com/SrutiG/WebsiteV2" class="list-group-item">
-                <h3 class="list-group-item-heading">This Website</h3>
-                <h5>I made this website using the Bootstrap framework and basic HTML/CSS to show my interests and passion for
-                Computer Science. It is an ongoing project and I will try to add a backend using PHP and a MySQL database to allow people to submit
-                suggestions and put it on a server.</h5>
-            </a>
+            <div class="list-group-item description" id="desc-five">
+                <div class="row" style="margin-left:3px">
+                    <a href="https://github.com/SrutiG/WebsiteV2">Github Link</a>
+                </div>
+                <h4>Description</h4>
+                <p>I made this website using the Bootstrap framework and basic HTML/CSS to show my interests and passion for
+                    Computer Science. It is an ongoing project and I will try to add a backend using PHP and a MySQL database to allow people to submit
+                    suggestions and put it on a server.</p>
+            </div>
         </div>
+    </div>
 </div>
 
-
-<script src="../static/scripts/bootstrap.min.js"></script>
 </body>
 
 </html>
+
+<!--https://github.com/michaelchen523/allianceDatabase
+https://github.gatech.edu/kstites3/SRAT/tree/master
+https://github.com/SrutiG/BallersMeet
+https://github.com/SrutiG/simple-gpa-calc
+https://github.com/SrutiG/WebsiteV2
+-->
+
+
