@@ -13,6 +13,29 @@ body {
 
 }
 
+.proj-carousel {
+    background-color: #333333;
+}
+
+.js-apps {
+    background-image: url(../images/web-bkgrd.jpg);
+}
+
+.js-apps h1, h2, h3, p {
+    color: #FFFFFF;
+}
+
+.js-apps h1 {
+    text-shadow: 2px 2px #222;
+    font-family: 'Passion One', cursive;
+
+
+}
+
+.js-apps h4, label, a {
+    color: #CCCCCC;
+}
+
 .main h1, h2, h3, p {
     color: #FFFFFF
 }
@@ -52,17 +75,23 @@ body {
 }
 
 .project:hover {
-    background-color: #AAAAAA;
+    background-color: #666666;
 }
-
-.project:hover h2, h4 {
-    color: #333333;
-}
-
 
 .description {
    background-color: #333333;
 }
+
+.gpa-calc {
+    background-color: #666;
+    margin-top:10px;
+    margin-bottom:10px;
+    border-style: solid;
+    border-width: 5px;
+    border-color: #DDDDDD;
+    border-radius: 30px;
+}
+
 
 
 
