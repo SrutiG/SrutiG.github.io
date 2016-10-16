@@ -3,12 +3,24 @@ $(document).ready(function() {
     var gpa = null;
     var heightbool = true;
     $(".gpa-title").after("<h3 style='color:#fff' class='gpa-calculated'><h3>");
+    $(".class-input").map(function() {
+        var pos = $(".class-input").index(this) + 1;
+        $(this).attr("placeholder", "Class " + pos);
+    });
+    $(".grade-input").map(function() {
+        $(this).attr("placeholder", "A, B, C, D, F");
+    });
+    $(".creds-input").map(function() {
+            $(this).attr("placeholder", "Integer (1-10)");
+    });
 
 
 
     $("#gpa-form").on('click', '#add-class', function() {
         var newDiv = $(".class-info")[0].outerHTML;
         $("#add-class").before(newDiv);
+        var posNum = $(".class-info").length;
+        $(".class-input:last").attr("placeholder", "Class " + posNum);
         var inc = $(".class-info").height();
         inc +=15;
         $("#myCarousel").height("+=" + inc);

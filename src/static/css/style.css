@@ -14,22 +14,33 @@ body {
 }
 
 .proj-carousel {
-    background-color: #333333;
+    margin-top: none;
 }
 
-.js-apps {
-    background-image: url(../images/web-bkgrd.jpg);
+
+.js-apps{
+    background-color: #333333;
+
 }
 
 .js-apps h1, h2, h3, p {
     color: #FFFFFF;
 }
 
-.js-apps h1 {
+.sruti-bkgrd {
     text-shadow: 2px 2px #222;
     font-family: 'Passion One', cursive;
+    margin:0 ! important;
+    height:145px;
+    background-image: url(../images/web-bkgrd.jpg);
+    background-size: auto 150px;
 
 
+
+}
+
+.sruti-bkgrd h1 {
+    margin: auto;
 }
 
 .js-apps h4, label, a {
@@ -83,13 +94,18 @@ body {
 }
 
 .gpa-calc {
-    background-color: #666;
-    margin-top:10px;
+    background-color: #000;
     margin-bottom:10px;
     border-style: solid;
     border-width: 5px;
     border-color: #DDDDDD;
     border-radius: 30px;
+
+}
+
+.gpa-calc h2 {
+   font-family: 'Russo One', sans-serif;
+   color: #f00;
 }
 
 
