@@ -22,7 +22,7 @@ $(document).ready(function() {
         var posNum = $(".class-info").length;
         $(".class-input:last").attr("placeholder", "Class " + posNum);
         var inc = $(".class-info").height();
-        inc +=15;
+        //inc +=15;
         $("#myCarousel").height("+=" + inc);
 
     });
