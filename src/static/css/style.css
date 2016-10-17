@@ -1,0 +1,113 @@
+body {
+    background-color: #333333
+}
+
+.main {
+    background-image: url(../images/garmisch_1.jpg);
+    background-position: center;
+    z-index: -1;
+    }
+
+.projectlist {
+    margin-top: 20px;
+
+}
+
+.proj-carousel {
+    margin-top: none;
+}
+
+
+.js-apps{
+    background-color: #333333;
+
+}
+
+.js-apps h1, h2, h3, p {
+    color: #FFFFFF;
+}
+
+.sruti-bkgrd {
+    text-shadow: 2px 2px #222;
+    font-family: 'Passion One', cursive;
+    margin:0 ! important;
+    height:145px;
+    background-image: url(../images/web-bkgrd.jpg);
+    background-size: auto 150px;
+
+
+
+}
+
+.sruti-bkgrd h1 {
+    margin: auto;
+}
+
+.js-apps h4, label, a {
+    color: #CCCCCC;
+}
+
+.main h1, h2, h3, p {
+    color: #FFFFFF
+}
+
+.main h1 {
+    border-style: solid;
+    border-width: 5px;
+    border-color: #222222;
+    text-transform: uppercase;
+    font-size:40px;
+}
+
+.main h4, label, a {
+    color: #CCCCCC;
+}
+
+.mainpar a {
+    color: #CCCCCC;
+}
+
+
+.skills h3 {
+    color: #DDDDDD;
+}
+
+.skills ul {
+    color: #BBBBBB;
+}
+
+.project {
+    background-color: #333333;
+}
+
+.project h4 {
+    color: #DDDDDD;
+    text-style: none;
+}
+
+.project:hover {
+    background-color: #666666;
+}
+
+.description {
+   background-color: #333333;
+}
+
+.gpa-calc {
+    background-color: #000;
+    margin-bottom:10px;
+    border-style: solid;
+    border-width: 5px;
+    border-color: #DDDDDD;
+    border-radius: 30px;
+
+}
+
+.gpa-calc h2 {
+   font-family: 'Russo One', sans-serif;
+   color: #f00;
+}
+
+
+
+
