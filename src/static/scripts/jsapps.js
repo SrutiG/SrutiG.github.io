@@ -16,6 +16,7 @@ $(document).ready(function() {
 
 
 
+
     $("#gpa-form").on('click', '#add-class', function() {
         var newDiv = $(".class-info")[0].outerHTML;
         $("#add-class").before(newDiv);
