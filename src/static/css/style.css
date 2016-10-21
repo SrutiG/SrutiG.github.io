@@ -15,6 +15,7 @@ body {
 
 .proj-carousel {
     margin-top: none;
+    background-color: #000;
 }
 
 
@@ -94,12 +95,7 @@ body {
 }
 
 .gpa-calc {
-    background-color: #000;
-    margin-bottom:10px;
-    border-style: solid;
-    border-width: 5px;
     border-color: #DDDDDD;
-    border-radius: 30px;
 
 }
 
