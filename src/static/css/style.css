@@ -1,9 +1,9 @@
 body {
-    background-color: #333333;
+    background-color: #0a0a0a;
 }
 
 .main {
-    background-image: url(../images/SrutiComputer3.JPG);
+    background-image: url(../images/SrutiComputer4.PNG);
     background-size: 400px;
     background-position: center;
     z-index: -1;
@@ -53,7 +53,7 @@ body {
 }
 
 .main h1, h2, h3, p {
-    color: #FFFFFF
+    color: #eeeeee;
 }
 
 .main h1 {
@@ -66,20 +66,20 @@ body {
 }
 
 .mainpar a {
-    color: #DDDDDD;
+    color: #eeeeee;
 }
 
 
 .skills h3 {
-    color: #DDDDDD;
+    color: #C68A4F;
 }
 
 .skills ul {
-    color: #BBBBBB;
+    color: #C1C1C1;
 }
 
 .project {
-    background-color: #333333;
+    background-color: #0A0A0A;
 }
 
 .project h4 {
@@ -92,7 +92,7 @@ body {
 }
 
 .description {
-   background-color: #333333;
+   background-color: #0A0A0A;
 }
 
 .gpa-calc {
@@ -106,19 +106,24 @@ body {
 }
 
 .why-i-code h2, p{
-    color: #333333;
+    color: #0a0a0a;
 }
 
 .mainpar {
-    color: #FFFFFF;
+    color: #eeeeee;
 }
 
 .about-me {
-    background-color: #333333;
+    background-color: #0a0a0a;
 }
 
-.red {
-    --color:#aabbbb !important;
+.col {
+    color: #C68A4F !important;
+}
+
+.main-but {
+    color: #00A0A0A;
+    background-color: #C68A4F;
 }
 
 
