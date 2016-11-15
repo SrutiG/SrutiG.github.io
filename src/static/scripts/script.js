@@ -1,10 +1,17 @@
 $(document).ready(function() {
 
-    $(".description").hide();
+    $(".projdescription").hide();
 
     $(".project").click(function() {
-        $(this).next($(".description")).toggle();
+        $(".projdescription").show();
+        $(".project").hide();
+
     });
+
+    $(".projdescription").click(function() {
+        $(".project").show();
+        $(".projdescription").hide();
+    })
 
 });
 

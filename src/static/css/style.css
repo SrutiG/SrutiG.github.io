@@ -68,6 +68,9 @@ body {
 
 .project {
     background-color: #0A0A0A;
+    border-style: solid;
+    border-color: #C1C1C1;
+    border-width: 1px;
 }
 
 .project h4 {
@@ -77,6 +80,7 @@ body {
 
 .project:hover {
     background-color: #666666;
+    text-style: none;
 }
 
 .description {
@@ -114,7 +118,8 @@ body {
     background-color: #C68A4F;
 }
 
-.project {
+.projdescription {
+    background-color: #0A0A0A;
     border-style: solid;
     border-color: #C1C1C1;
     border-width: 1px;
