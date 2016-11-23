@@ -5,14 +5,16 @@ $(document).ready(function() {
     $(".projdescription").css("height", 2*projheight);
 
     $(".project").click(function() {
-        $(".projdescription").show();
+        var projindex = $(".project").index(this);
+        $(".projdescription").eq(projindex).show();
         $(".project").hide();
 
     });
 
     $(".projdescription").click(function() {
+        var projindex = $(".projdescription").index(this);
         $(".project").show();
-        $(".projdescription").hide();
+        $(".projdescription").eq(projindex).hide();
     })
 
 });
