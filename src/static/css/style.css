@@ -1,7 +1,7 @@
 body {
     background-color: #0a0a0a;
     font-family: 'Quicksand', sans-serif;
-    ..background-color: #9DA9CC;
+    ..background-color: #F4F4F4;
 }
 
 .main {
@@ -43,7 +43,7 @@ body {
 }
 
 .main h1, h2, h3, p {
-    color: #eeeeee;
+    color: #C5D3FF;
 }
 
 .main h1 {
@@ -61,13 +61,13 @@ body {
 
 
 .skills h3 {
-    color: #C68A4F;
-    ..color: #62697F;
+    ..color: #C68A4F;
+    color: #62697F;
 }
 
 .skills ul {
-    color: #C1C1C1;
-    ..color: #4C77FF;
+    ..color: #C1C1C1;
+    color: #3C4C7F;
 }
 
 .project {
@@ -100,17 +100,12 @@ body {
 
 }
 
-.gpa-calc h2 {
-   font-family: 'Russo One', sans-serif;
-   color: #C68A4F;
-}
-
 .why-i-code h2, p{
     color: #0a0a0a;
 }
 
 .mainpar {
-    color: #eeeeee;
+    color: #C5D3FF;
 }
 
 .about-me {
@@ -118,13 +113,14 @@ body {
 }
 
 .col {
-    color: #C68A4F !important;
-    ..color: #62697F !important;
+    ..color: #C68A4F !important;
+    color: #C5D3FF !important;
 }
 
 .main-but {
-    color: #00A0A0A;
-    background-color: #C68A4F;
+    color: #62697F;
+    ..background-color: #C68A4F;
+    background-color: #C5D3FF;
 }
 
 .projdescription {
@@ -132,6 +128,24 @@ body {
     border-style: solid;
     border-color: #C1C1C1;
     border-width: 1px;
+}
+
+.dark {
+    background-color: #9DA9CC;
+    padding-top: 25px;
+    height: 200px;
+    border-style: solid;
+    border-color: #0a0a0a;
+    border-width: 2px;
+}
+
+.light {
+    background-color: #C5D3FF;
+    padding-top: 25px;
+    height: 200px;
+    border-style: solid;
+    border-color: #0a0a0a;
+    border-width: 2px;
 }
 
 
