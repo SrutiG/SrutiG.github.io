@@ -3,6 +3,8 @@ $(document).ready(function() {
     $(".projdescription").hide();
     var projheight = $(".project").height();
     $(".projdescription").css("height", 2*projheight);
+    $(".proj-text").css("height", 1.5*projheight);
+    $(".proj-img").css("height", 1.5*projheight);
 
     $(".project").click(function() {
         var projindex = $(".project").index(this);

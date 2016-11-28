@@ -148,6 +148,39 @@ body {
     border-width: 2px;
 }
 
+.proj-header {
+    margin-bottom: 25px;
+    border-bottom: solid #c1c1c1 1px;
+}
+
+.proj-img {
+    padding: 20px;
+    background-color: #333333;
+    border-right: solid #0A0A0A 3px;
+
+
+}
+
+.proj-text {
+    padding: 20px;
+    background-color: #333333;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.proj-text p {
+   display: table-cell;
+   color: #c1c1c1;
+   text-size: 15px;
+}
+
+.proj-img .proj-images {
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+}
+
 
 
 
