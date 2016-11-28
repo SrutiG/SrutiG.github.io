@@ -79,16 +79,15 @@ body {
 
 .project h4 {
     color: #DDDDDD;
-    text-style: none;
-}
-
-.project:hover {
-    background-color: #666666;
-
 }
 
 .project a:hover {
-    text-style: none ! important;
+    text-decoration: none ! important;
+    color: #DDDDDD;
+}
+
+.project:hover {
+    background-color: #333333;
 }
 
 .description {
@@ -156,7 +155,9 @@ body {
 .proj-img {
     padding: 20px;
     background-color: #222222;
-    border-right: solid #0A0A0A 3px;
+    border-style: solid;
+    border-color: #0a0a0a;
+    border-width: 2px;
 
 
 }
@@ -167,6 +168,9 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    border-style: solid;
+    border-color: #0a0a0a;
+    border-width: 2px;
 }
 
 .proj-text p {
