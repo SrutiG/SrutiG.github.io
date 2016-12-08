@@ -20,8 +20,12 @@ body {
     opacity: 0.4;
 }
 
-.projects-page {
+.projects-page{
     height: 100vh;
+}
+
+.resume-page {
+    height: 200vh;
 }
 
 .one-view {
