@@ -1,15 +1,41 @@
+:root {
+    --colorPrimaryDark: #0a0a0a;
+    --colorPrimary: #9DA9CC;
+    --colorPrimaryLight: #C5D3FF
+    --nav: #222;
+}
+
 body {
-    background-color: #0a0a0a;
+    background-color: var(--colorPrimaryDark);
     font-family: 'Quicksand', sans-serif;
     ..background-color: #F4F4F4;
 }
 
 .main {
-    background-image: url(../images/SrutiComputer4.PNG);
+    background-image: url(../images/SrutiComputer5.PNG);
     background-size: 400px;
     background-position: center;
+    position: relative;
     z-index: -1;
-    }
+    opacity: 0.4;
+}
+
+.projects-page {
+    height: 95vh;
+}
+
+.one-view {
+    height: 300px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+.maintext {
+    position: absolute;
+    top: 5%;
+    background: none ! important;
+    margin: auto;
+    width: 100%;
+}
 
 .projectlist {
     margin-top: 20px;
@@ -54,7 +80,18 @@ body {
 .main h4, label, a {
     color: #DDDDDD;
 }
+.maintext h1, h2, h3, p {
+    color: #C5D3FF;
+}
 
+.maintext h1 {
+    text-transform: uppercase;
+    font-size:40px;
+}
+
+.maintext h4, label, a {
+    color: #DDDDDD;
+}
 .mainpar a {
     color: #eeeeee;
 }
