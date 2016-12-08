@@ -20,7 +20,7 @@ body {
     opacity: 0.4;
 }
 
-.projects-page{
+.projects-page, .about-me {
     height: 100vh;
 }
 
