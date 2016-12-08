@@ -179,8 +179,8 @@ body {
    text-size: 15px;
 }
 
-.proj-img .proj-images {
-    display: inline-block;
+.proj-img {
+    display: block;
     height: 100%;
     vertical-align: middle;
 }

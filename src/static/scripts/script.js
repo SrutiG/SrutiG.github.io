@@ -1,10 +1,23 @@
 $(document).ready(function() {
 
-    $(".projdescription").hide();
     var projheight = $(".project").height();
     $(".projdescription").css("height", 2*projheight);
     $(".proj-text").css("height", 1.5*projheight);
     $(".proj-img").css("height", 1.5*projheight);
+    $(".project").map(function() {
+        var projindex = $(".project").index(this);
+        var images = $(".projdescription").eq(projindex).find(".proj-img");
+        var height = images.height();
+        var imageContainers = $(".projdescription").eq(projindex).find(".proj-images");
+        var imgHeight = imageContainers.height();
+        var diff = height-imgHeight;
+        if (diff > 10) {
+            images.css("padding-top", diff/2);
+            images.css("padding-bottom", diff/2);
+        }
+    });
+    $(".projdescription").hide();
+
 
     $(".project").click(function() {
         var projindex = $(".project").index(this);
@@ -18,6 +31,8 @@ $(document).ready(function() {
         $(".project").show();
         $(".projdescription").eq(projindex).hide();
     })
+
+
 
 });
 
