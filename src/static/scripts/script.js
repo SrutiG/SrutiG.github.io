@@ -1,5 +1,5 @@
 $(document).ready(function() {
-
+    $(".projdescription").show();
     var projheight = $(".project").height();
     $(".projdescription").css("height", 2*projheight);
     $(".proj-text").css("height", 1.5*projheight);
