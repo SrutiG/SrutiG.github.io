@@ -1,14 +1,23 @@
 :root {
+
     --colorPrimaryDark: #0a0a0a;
     --colorPrimary: #9DA9CC;
-    --colorPrimaryLight: #C5D3FF
-    --nav: #222;
+    --colorAccent: #C5D3FF;
+    --nav: #222222;
+    --header: #DDDDDD;
+    --hover: #333333;
+    --texthover: #eeeeee;
+    --text: #333333;
+    --border: #C1C1C1;
 }
 
 body {
     background-color: var(--colorPrimaryDark);
     font-family: 'Lato', sans-serif;
-    ..background-color: #F4F4F4;
+}
+
+nav {
+    background-color: var(--nav) ! important;
 }
 
 .main {
@@ -73,7 +82,7 @@ body {
 }
 
 .main h1, h2, h3, p {
-    color: #C5D3FF;
+    color: var(--colorAccent);
 }
 
 .main h1 {
@@ -82,10 +91,10 @@ body {
 }
 
 .main h4, label, a {
-    color: #DDDDDD;
+    color: var(--header);
 }
 .maintext h1, h2, h3, p {
-    color: #C5D3FF;
+    color: var(--colorAccent);
 }
 
 .maintext h1 {
@@ -94,45 +103,43 @@ body {
 }
 
 .maintext h4, label, a {
-    color: #DDDDDD;
+    color: var(--header);
 }
 .mainpar a {
-    color: #eeeeee;
+    color: var(--texthover);
 }
 
 
 .skills h3 {
-    ..color: #C68A4F;
-    color: #62697F;
+    color: var(--text);
 }
 
 .skills ul {
-    ..color: #C1C1C1;
-    color: #3C4C7F;
+    color: var(--text);
 }
 
 .project {
-    background-color: #0A0A0A;
+    background-color: var(--colorPrimaryDark);
     border-style: solid;
-    border-color: #C1C1C1;
+    border-color: var(--border);
     border-width: 1px;
 }
 
 .project h4 {
-    color: #DDDDDD;
+    color: var(--header);
 }
 
 .project a:hover {
     text-decoration: none ! important;
-    color: #DDDDDD;
+    color: var(--header);
 }
 
 .project:hover {
-    background-color: #333333;
+    background-color: var(--hover);
 }
 
 .description {
-   background-color: #0A0A0A;
+   background-color: var(--colorPrimaryDark);
 }
 
 .gpa-calc {
@@ -141,82 +148,78 @@ body {
 }
 
 .why-i-code h2, p{
-    color: #0a0a0a;
+    color: var(--colorPrimaryDark);
 }
 
 .mainpar {
-    color: #C5D3FF;
+    color: var(--colorAccent);
 }
 
 .about-me {
-    background-color: #0a0a0a;
+    background-color: var(--colorPrimaryDark);
 }
 
 .col {
-    ..color: #C68A4F !important;
-    color: #C5D3FF !important;
+    color: var(--colorAccent) !important;
 }
 
 .main-but {
-    color: #62697F;
-    ..background-color: #C68A4F;
-    background-color: #C5D3FF;
+    color: var(--text);
+    background-color: var(--colorAccent);
 }
 
 .projdescription {
-    background-color: #0A0A0A;
+    background-color: var(--colorPrimaryDark);
     border-style: solid;
-    border-color: #C1C1C1;
+    border-color: var(--border);
     border-width: 1px;
 }
 
 .dark {
-    background-color: #9DA9CC;
+    background-color: var(--colorPrimary);
     padding-top: 25px;
     height: 200px;
     border-style: solid;
-    border-color: #0a0a0a;
+    border-color: var(--colorPrimaryDark);
     border-width: 2px;
 }
 
 .light {
-    background-color: #C5D3FF;
+    background-color: var(--colorAccent);
     padding-top: 25px;
     height: 200px;
     border-style: solid;
-    border-color: #0a0a0a;
+    border-color: var(--colorPrimaryDark);
     border-width: 2px;
 }
 
 .proj-header {
     margin-bottom: 25px;
-    border-bottom: solid #c1c1c1 1px;
+    border-bottom: solid var(--border) 1px;
 }
 
 .proj-img {
     padding: 20px;
-    background-color: #222222;
+    background-color: var(--nav);
     border-style: solid;
-    border-color: #0a0a0a;
+    border-color: var(--colorPrimaryDark);
     border-width: 2px;
-
-
 }
 
 .proj-text {
     padding: 20px;
-    background-color: #222222;
+    background-color: var(--nav);
     display: flex;
     align-items: center;
     justify-content: center;
     border-style: solid;
-    border-color: #0a0a0a;
+    border-color: var(--colorPrimaryDark);
     border-width: 2px;
 }
 
 .proj-text p {
    display: table-cell;
-   color: #c1c1c1;
+   color: var(--border);
    text-size: 15px;
 }
 
@@ -227,10 +230,10 @@ body {
 }
 
 .sruti-post {
-    background-color: #0A0A0A;
+    background-color: var(--colorPrimaryDark);
     padding: 20px;
     border-style: solid;
-    border-color: #c1c1c1;
+    border-color: var(--border);
     border-width: 1px;
 }
 
