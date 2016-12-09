@@ -1,5 +1,6 @@
 $(document).ready(function() {
-
+    console.log(window.location.pathname);
+    $(".projdescription").show();
     var projheight = $(".project").height();
     $(".projdescription").css("height", 2*projheight);
     $(".proj-text").css("height", 1.5*projheight);
@@ -11,6 +12,7 @@ $(document).ready(function() {
         var imageContainers = $(".projdescription").eq(projindex).find(".proj-images");
         var imgHeight = imageContainers.height();
         var diff = height-imgHeight;
+        console.log(diff);
         if (diff > 20) {
             images.css("padding-top", diff/2);
             images.css("padding-bottom", diff/2);
