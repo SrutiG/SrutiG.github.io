@@ -11,7 +11,7 @@ $(document).ready(function() {
         var imageContainers = $(".projdescription").eq(projindex).find(".proj-images");
         var imgHeight = imageContainers.height();
         var diff = height-imgHeight;
-        if (diff > 10) {
+        if (diff > 20) {
             images.css("padding-top", diff/2);
             images.css("padding-bottom", diff/2);
         }
