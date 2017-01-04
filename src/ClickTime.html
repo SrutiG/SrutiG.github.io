@@ -31,9 +31,9 @@
         <div id="toggles">
             <h6>I want to...</h6>
             <div class="btn-group">
-                <button type="button" id="walk-btn" onclick = "calcRoute(google.maps.TravelMode.WALKING)" class="btn btn-default active mode-btn">Walk</button>
-                <button type="button" id="bike-btn" onclick = "calcRoute(google.maps.TravelMode.BICYCLING)" class="btn btn-default mode-btn">Bike</button>
-                <button type="button" id="transit-btn" onclick = "calcRoute(google.maps.TravelMode.TRANSIT)" class="btn btn-default mode-btn">Use Transit</button>
+                <button type="button" id="walk-btn" onclick = "calcRoute(google.maps.TravelMode.WALKING, this)" class="btn btn-default active mode-btn">Walk</button>
+                <button type="button" id="bike-btn" onclick = "calcRoute(google.maps.TravelMode.BICYCLING, this)" class="btn btn-default mode-btn">Bike</button>
+                <button type="button" id="transit-btn" onclick = "calcRoute(google.maps.TravelMode.TRANSIT, this)" class="btn btn-default mode-btn">Use Transit</button>
             </div>
         </div>
     </div>
@@ -99,7 +99,9 @@
         }
     }
 
-    function calcRoute(transportMethod) {
+    function calcRoute(transportMethod, button) {
+        $(".mode-btn").removeClass("active");
+        $(button).addClass("active");
         $("#steps-loading").show();
         $("#route-directions").empty();
         $("#time-distance").empty();

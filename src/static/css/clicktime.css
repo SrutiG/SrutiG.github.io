@@ -27,6 +27,7 @@ body {
 .side-bar > h1, h2 {
     color: var(--header);
     text-align: center;
+    margin-top: 0px;
 }
 
 .side-bar > .steps {
@@ -36,6 +37,7 @@ body {
     margin: auto;
     padding: 2%;
     overflow-y: scroll;
+    position: relative;
 }
 
 .side-bar > #toggles {
@@ -44,12 +46,13 @@ body {
 }
 .side-bar > #steps-loading {
     color: var(--text);
-    height: 80%;
-    width: 85%;
     margin: auto;
-    z-index: -99;
-    positon: absolute;
+    position: absolute;
     text-align: center;
+    top: 20%;
+    left: 85%;
+    transform: translateX(-50%);
+    margin-right: -50%;
 }
 
 #map {
@@ -62,5 +65,5 @@ body {
 .side-bar > #time-distance {
     text-align: center;
     color: var(--accent);
-    height: 10%;
+    margin-top: 2%;
 }
