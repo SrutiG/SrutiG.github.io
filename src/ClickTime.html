@@ -5,6 +5,8 @@
     <title>Sruti Guhathakurta's Website</title>
     <meta name = 'description' content = "Sruti Guhathakurta's Website">
     <meta name = 'author' content = "Sruti Guhathakurta">
+    <script type="text/javascript" src="static/scripts/jquery.min.js"></script>
+
     <link href="https://fonts.googleapis.com/css?family=Lato:300|Quicksand" rel="stylesheet">
     <link rel= "stylesheet" type= "text/css" href= "static/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="static/css/clicktime.css">
@@ -14,20 +16,37 @@
 
     </div>
     <div class="side-bar jumbotron">
-        <h2>Where the treats at?</h2>
+        <h2>Where are the treats at?</h2>
         <div class="steps">
-            <ol>
-                <h3><li>Step 1</li></h3>
-                <h3><li>Step 2</li></h3>
+            <ol id="route-directions">
+
             </ol>
+        </div>
+        <div id="steps-loading">
+            <h2>Wait a moment...</h2>
+            <h4>Calculating the steps</h4>
+        </div>
+        <div id="time-distance">
+        </div>
+        <div id="toggles">
+            <h6>I want to...</h6>
+            <div class="btn-group">
+                <button type="button" id="walk-btn" onclick = "calcRoute(google.maps.TravelMode.WALKING)" class="btn btn-default active mode-btn">Walk</button>
+                <button type="button" id="bike-btn" onclick = "calcRoute(google.maps.TravelMode.BICYCLING)" class="btn btn-default mode-btn">Bike</button>
+                <button type="button" id="transit-btn" onclick = "calcRoute(google.maps.TravelMode.TRANSIT)" class="btn btn-default mode-btn">Use Transit</button>
+            </div>
         </div>
     </div>
 
     <script>
     function initMap() {
-        var map = new google.maps.Map(document.getElementById('map'), {
+        var start;
+        var end;
+        map = new google.maps.Map(document.getElementById('map'), {
                   zoom: 4,
         });
+        directionsDisplay = new google.maps.DirectionsRenderer({map:map});
+        directionsService = new google.maps.DirectionsService;
         var address = "282 2nd Street 4th floor, San Francisco, CA 94105";
         var bounds = new google.maps.LatLngBounds();
         geocoder = new google.maps.Geocoder();
@@ -37,7 +56,8 @@
                 var marker = new google.maps.Marker({
                     position: results[0].geometry.location, map: map});
                 bounds.extend(marker.position);
-                map.fitBounds(bounds);
+                end = marker.position;
+                window.endPos = end;
             } else {
                 alert(status);
             }
@@ -51,18 +71,66 @@
                 return 0;
             }
         }
-
         function showPosition(position) {
             var latitude = position.coords.latitude;
             var longitude = position.coords.longitude;
             var marker = new google.maps.Marker({
                     position: {lat: latitude, lng: longitude}, map: map});
             bounds.extend(marker.position);
+            start = marker.position;
+            window.startPos = start;
             map.fitBounds(bounds);
-
-
+            calcRoute(start, end);
+        }
+        function calcRoute(start, end) {
+            var request = {
+                origin: start,
+                destination: end,
+                travelMode: google.maps.TravelMode.WALKING
+            };
+            directionsService.route(request, function(result, status) {
+                if (status == 'OK') {
+                    directionsDisplay.setDirections(result);
+                    showSteps(result);
+                } else {
+                    console.log(status);
+                }
+            });
         }
     }
+
+    function calcRoute(transportMethod) {
+        $("#steps-loading").show();
+        $("#route-directions").empty();
+        $("#time-distance").empty();
+        var request = {
+            origin: startPos,
+            destination: endPos,
+            travelMode: transportMethod
+        };
+        directionsService.route(request, function(result, status) {
+            if (status == 'OK') {
+                directionsDisplay.setDirections(result);
+                showSteps(result);
+            } else {
+                console.log(status);
+            }
+        });
+    }
+
+    function showSteps(result) {
+
+        var steps = result.routes[0].legs[0].steps;
+        var legs = result.routes[0].legs[0];
+        for (var x=0; x < steps.length; x++) {
+            $("#route-directions").append("<h4><li>" + steps[x].instructions + "</li></h4>");
+        }
+        $("#time-distance").append("<h5>Total Time: approx " + legs.duration.text +
+            "<br>Total Distance: " + legs.distance.text + "</h5>");
+        $("#steps-loading").hide();
+    }
+
+
     </script>
     <script async defer
             src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAho7pmpxpIPg1ZtxbmdyDE6vFWC_Ve_Gc&callback=initMap">

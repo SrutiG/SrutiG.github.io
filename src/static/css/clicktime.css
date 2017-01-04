@@ -4,7 +4,7 @@
     --primaryLight: #f4f4ed;
     --accent: #b5ffe9;
     --text: #c5e0d8;
-    --header: var(--accent);
+    --header: var(--primary);
 }
 
 body {
@@ -31,10 +31,25 @@ body {
 
 .side-bar > .steps {
     color: var(--text);
-    height: 85%;
-    width: 80%;
+    height: 70%;
+    width: 90%;
     margin: auto;
     padding: 2%;
+    overflow-y: scroll;
+}
+
+.side-bar > #toggles {
+    color: var(--text);
+    text-align: center;
+}
+.side-bar > #steps-loading {
+    color: var(--text);
+    height: 80%;
+    width: 85%;
+    margin: auto;
+    z-index: -99;
+    positon: absolute;
+    text-align: center;
 }
 
 #map {
@@ -42,4 +57,10 @@ body {
     width: 70%;
     display: inline-block;
     border: 2px var(--primaryDark) solid;
+}
+
+.side-bar > #time-distance {
+    text-align: center;
+    color: var(--accent);
+    height: 10%;
 }
