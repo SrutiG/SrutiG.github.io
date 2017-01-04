@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset='utf-8'>
+    <title>Sruti Guhathakurta's Website</title>
+    <meta name = 'description' content = "Sruti Guhathakurta's Website">
+    <meta name = 'author' content = "Sruti Guhathakurta">
+    <link href="https://fonts.googleapis.com/css?family=Lato:300|Quicksand" rel="stylesheet">
+    <link rel= "stylesheet" type= "text/css" href= "static/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="static/css/clicktime.css">
+</head>
+<body>
+    <div id="map">
+
+    </div>
+    <div class="side-bar jumbotron">
+        <h2>Where the treats at?</h2>
+        <div class="steps">
+            <ol>
+                <h3><li>Step 1</li></h3>
+                <h3><li>Step 2</li></h3>
+            </ol>
+        </div>
+    </div>
+
+    <script>
+    function initMap() {
+        var map = new google.maps.Map(document.getElementById('map'), {
+                  zoom: 4,
+        });
+        var address = "282 2nd Street 4th floor, San Francisco, CA 94105";
+        var bounds = new google.maps.LatLngBounds();
+        geocoder = new google.maps.Geocoder();
+        geocoder.geocode({'address': address}, function(results, status) {
+            if (status == google.maps.GeocoderStatus.OK) {
+                map.setCenter(results[0].geometry.location);
+                var marker = new google.maps.Marker({
+                    position: results[0].geometry.location, map: map});
+                bounds.extend(marker.position);
+                map.fitBounds(bounds);
+            } else {
+                alert(status);
+            }
+        });
+        getLocation();
+        function getLocation() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(showPosition);
+            } else {
+                console.log("Geolocation is not supported by this browser");
+                return 0;
+            }
+        }
+
+        function showPosition(position) {
+            var latitude = position.coords.latitude;
+            var longitude = position.coords.longitude;
+            var marker = new google.maps.Marker({
+                    position: {lat: latitude, lng: longitude}, map: map});
+            bounds.extend(marker.position);
+            map.fitBounds(bounds);
+
+
+        }
+    }
+    </script>
+    <script async defer
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAho7pmpxpIPg1ZtxbmdyDE6vFWC_Ve_Gc&callback=initMap">
+    </script>
+
+</body>
+</html>
