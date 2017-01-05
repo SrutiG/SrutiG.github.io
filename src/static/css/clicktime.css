@@ -24,7 +24,7 @@ body {
     background-color: var(--primaryDark);
 }
 
-.side-bar > h1, h2 {
+.side-bar > h1, h2, h3, h5 {
     color: var(--header);
     text-align: center;
     margin-top: 0px;
@@ -43,13 +43,15 @@ body {
 .side-bar > #toggles {
     color: var(--text);
     text-align: center;
+    margin-top: 5%;
+    display: none;
 }
 .side-bar > #steps-loading {
     color: var(--text);
     margin: auto;
     position: absolute;
     text-align: center;
-    top: 20%;
+    top: 40%;
     left: 85%;
     transform: translateX(-50%);
     margin-right: -50%;
@@ -65,5 +67,5 @@ body {
 .side-bar > #time-distance {
     text-align: center;
     color: var(--accent);
-    margin-top: 2%;
+    margin-top: 5%;
 }
