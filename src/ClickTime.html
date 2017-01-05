@@ -32,7 +32,7 @@
             <div class="btn-group">
                 <button type="button" id="walk-btn" onclick = "calcRoute(google.maps.TravelMode.WALKING, this)" class="btn btn-default active mode-btn">Walk</button>
                 <button type="button" id="bike-btn" onclick = "calcRoute(google.maps.TravelMode.BICYCLING, this)" class="btn btn-default mode-btn">Bike</button>
-                <button type="button" id="transit-btn" onclick = "calcRoute(google.maps.TravelMode.TRANSIT, this)" class="btn btn-default mode-btn">Transit</button>
+                <button type="button" id="transit-btn" onclick = "calcRouteTransit(this)" class="btn btn-default mode-btn">Transit</button>
             </div>
         </div>
     </div>
@@ -162,6 +162,64 @@
         }
         $("#time-distance").append("<h5>Total Time: approx " + legs.duration +
             "<br>Total Distance: " + legs.distance + "</h5>");
+        $("#steps-loading").hide();
+        $("#toggles").show();
+    }
+
+    function calcRouteTransit(button) {
+        $(".mode-btn").removeClass("active");
+        $(button).addClass("active");
+        $("#steps-loading").show();
+        $("#route-directions").empty();
+        $("#time-distance").empty();
+        $("#toggles").hide();
+        var request = {
+            origin: startPos,
+            destination: donutShop.location,
+            travelMode: google.maps.TravelMode.TRANSIT
+        };
+        directionsService.route(request, function(result, status) {
+            if (status == 'OK') {
+                directionsDisplay.setDirections(result);
+                showBasicSteps(result);
+            } else {
+                console.log(status);
+            }
+        });
+
+    }
+
+    function showBasicSteps(result) {
+        var firstSteps = result.routes[0].legs[0].steps;
+        var firstLeg = result.routes[0].legs[0];
+
+        for (var x=0; x < firstSteps.length; x++) {
+            $("#route-directions").append("<h4><li>" + firstSteps[x].instructions + "</li></h4>");
+        }
+        var second_request = {
+            origin: donutShop.location,
+            destination: endPos,
+            travelMode: google.maps.TravelMode.TRANSIT
+        };
+        directionsService.route(second_request, function(result, status) {
+            if (status == 'OK') {
+                idkWhy(result, firstLeg.distance.text, firstLeg.duration.text);
+            } else {
+                console.log(status);
+            }
+        });
+    }
+
+    function idkWhy(result, distance, duration) {
+        var firstSteps = result.routes[0].legs[0].steps;
+        var firstLeg = result.routes[0].legs[0];
+
+        for (var x=0; x < firstSteps.length; x++) {
+            $("#route-directions").append("<h4><li>" + firstSteps[x].instructions + "</li></h4>");
+        }
+
+        $("#time-distance").append("<h5>Total Time: approx " + duration + " then " + firstLeg.duration.text +
+            "<br>Total Distance: " + distance + " then " + firstLeg.distance.text + "</h5>");
         $("#steps-loading").hide();
         $("#toggles").show();
     }

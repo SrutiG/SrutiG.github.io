@@ -44,6 +44,7 @@ body {
     padding: 2%;
     overflow-y: scroll;
     position: relative;
+    border-radius: 3%;
 }
 
 .side-bar > #toggles {
