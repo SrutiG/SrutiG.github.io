@@ -22,6 +22,8 @@ body {
     float: right;
     display: inline-block;
     background-color: var(--primaryDark);
+    margin-bottom: 0px;
+    padding-top: 1.5%;
 }
 
 .side-bar > h2, h3, h5 {
@@ -41,16 +43,20 @@ body {
     height: 70%;
     width: 90%;
     margin: auto;
-    padding: 2%;
     overflow-y: scroll;
     position: relative;
     border-radius: 3%;
+}
+
+.side-bar > .steps > #route-directions li {
+    padding: 3% 2% 3% 0;
 }
 
 .side-bar > #toggles {
     color: var(--text);
     text-align: center;
     margin-top: 5%;
+    margin-bottom: 0px;
     display: none;
 }
 .side-bar > #steps-loading {
@@ -58,7 +64,7 @@ body {
     margin: auto;
     position: absolute;
     text-align: center;
-    top: 35%;
+    top: 30%;
     left: 80%;
     transform: translateX(-50%);
     margin-right: -50%;

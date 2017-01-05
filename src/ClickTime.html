@@ -202,6 +202,7 @@
         for (var x=0; x < firstSteps.length; x++) {
             $("#route-directions").append("<h4><li>" + firstSteps[x].instructions + "</li></h4>");
         }
+        $("#steps-loading").hide();
         var second_request = {
             origin: donutShop.location,
             destination: endPos,
@@ -218,24 +219,23 @@
                 line.setMap(map);
                 transitMarker = new google.maps.Marker({
                     position: endPos, map: map, label: "C"});
-                idkWhy(result, firstLeg.distance.text, firstLeg.duration.text);
+                showSteps_two(result, firstLeg.distance.text, firstLeg.duration.text);
             } else {
                 console.log(status);
             }
         });
     }
 
-    function idkWhy(result, distance, duration) {
+    function showSteps_two(result, distance, duration) {
         var firstSteps = result.routes[0].legs[0].steps;
         var firstLeg = result.routes[0].legs[0];
 
         for (var x=0; x < firstSteps.length; x++) {
             $("#route-directions").append("<h4><li>" + firstSteps[x].instructions + "</li></h4>");
         }
-
         $("#time-distance").append("<h5>Total Time: approx " + duration + " then " + firstLeg.duration.text +
             "<br>Total Distance: " + distance + " then " + firstLeg.distance.text + "</h5>");
-        $("#steps-loading").hide();
+
         $("#toggles").show();
     }
 
