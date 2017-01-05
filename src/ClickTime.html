@@ -7,7 +7,7 @@
     <meta name = 'author' content = "Sruti Guhathakurta">
     <script type="text/javascript" src="static/scripts/jquery.min.js"></script>
 
-    <link href="https://fonts.googleapis.com/css?family=Lato:300|Quicksand" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lato:300|Quicksand|Indie+Flower" rel="stylesheet">
     <link rel= "stylesheet" type= "text/css" href= "static/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="static/css/clicktime.css">
 </head>
@@ -16,7 +16,7 @@
 
     </div>
     <div class="side-bar jumbotron">
-        <h3 id="main-header">Where are the treats at?</h3>
+        <h2 id="main-header">Donuts for Bronuts</h2>
         <div class="steps">
             <ol id="route-directions">
 
@@ -114,7 +114,7 @@
             directionsService.route(request, function(result, status) {
                 if (status == 'OK') {
                     directionsDisplay.setDirections(result);
-                    $("#main-header").after("<h5>Stopping at " + shop.name + "</h5>");
+                    $("#main-header").after("<h3>Stopping at " + shop.name + "</h3>");
                     showSteps(result);
                 } else {
                     console.log(status);

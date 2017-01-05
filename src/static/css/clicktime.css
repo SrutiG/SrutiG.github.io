@@ -18,20 +18,26 @@ body {
 
 .side-bar {
     height: 100%;
-    width: 30%;
+    width: 40%;
     float: right;
     display: inline-block;
     background-color: var(--primaryDark);
 }
 
-.side-bar > h1, h2, h3, h5 {
-    color: var(--header);
+.side-bar > h2, h3, h5 {
+    color: var(--accent);
     text-align: center;
     margin-top: 0px;
 }
 
+.side-bar > h2 {
+    font-family: 'Indie Flower', sans-serif;
+    color: var(--header);
+}
+
 .side-bar > .steps {
-    color: var(--text);
+    color: var(--primaryDark);
+    background-color: var(--primaryLight);
     height: 70%;
     width: 90%;
     margin: auto;
@@ -47,19 +53,19 @@ body {
     display: none;
 }
 .side-bar > #steps-loading {
-    color: var(--text);
+    color: var(--primaryDark);
     margin: auto;
     position: absolute;
     text-align: center;
-    top: 40%;
-    left: 85%;
+    top: 35%;
+    left: 80%;
     transform: translateX(-50%);
     margin-right: -50%;
 }
 
 #map {
     height: 100%;
-    width: 70%;
+    width: 60%;
     display: inline-block;
     border: 2px var(--primaryDark) solid;
 }
