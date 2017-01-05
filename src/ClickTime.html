@@ -32,7 +32,7 @@
             <div class="btn-group">
                 <button type="button" id="walk-btn" onclick = "calcRoute(google.maps.TravelMode.WALKING, this)" class="btn btn-default active mode-btn">Walk</button>
                 <button type="button" id="bike-btn" onclick = "calcRoute(google.maps.TravelMode.BICYCLING, this)" class="btn btn-default mode-btn">Bike</button>
-                <button type="button" id="transit-btn" onclick = "calcRoute(google.maps.TravelMode.TRANSIT, this)" class="btn btn-default mode-btn">Transit</button>
+                <button type="button" id="transit-btn" onclick = "calcRouteTransit(this)" class="btn btn-default mode-btn">Transit</button>
             </div>
         </div>
     </div>
@@ -124,12 +124,18 @@
     }
 
     function calcRoute(transportMethod, button) {
+        window.line;
+        window.transitMarker;
         $(".mode-btn").removeClass("active");
         $(button).addClass("active");
         $("#steps-loading").show();
         $("#route-directions").empty();
         $("#time-distance").empty();
         $("#toggles").hide();
+        if (typeof line !== 'undefined' && typeof transitMarker !== 'undefined') {
+            line.setMap(null);
+            transitMarker.setMap(null);
+        }
         var request = {
             origin: startPos,
             destination: endPos,
@@ -163,6 +169,73 @@
         $("#time-distance").append("<h5>Total Time: approx " + legs.duration +
             "<br>Total Distance: " + legs.distance + "</h5>");
         $("#steps-loading").hide();
+        $("#toggles").show();
+    }
+
+    function calcRouteTransit(button) {
+        $(".mode-btn").removeClass("active");
+        $(button).addClass("active");
+        $("#steps-loading").show();
+        $("#route-directions").empty();
+        $("#time-distance").empty();
+        $("#toggles").hide();
+        var request = {
+            origin: startPos,
+            destination: donutShop.location,
+            travelMode: google.maps.TravelMode.TRANSIT
+        };
+        directionsService.route(request, function(result, status) {
+            if (status == 'OK') {
+                directionsDisplay.setDirections(result);
+                showBasicSteps(result);
+            } else {
+                console.log(status);
+            }
+        });
+
+    }
+
+    function showBasicSteps(result) {
+        var firstSteps = result.routes[0].legs[0].steps;
+        var firstLeg = result.routes[0].legs[0];
+
+        for (var x=0; x < firstSteps.length; x++) {
+            $("#route-directions").append("<h4><li>" + firstSteps[x].instructions + "</li></h4>");
+        }
+        $("#steps-loading").hide();
+        var second_request = {
+            origin: donutShop.location,
+            destination: endPos,
+            travelMode: google.maps.TravelMode.TRANSIT
+        };
+        directionsService.route(second_request, function(result, status) {
+            if (status == 'OK') {
+                line = new google.maps.Polyline({
+                    path: result.routes[0].overview_path,
+                    strokeColor: '#39f',
+                    strokeOpacity: 0.7,
+                    strokeWeight: 7
+                });
+                line.setMap(map);
+                transitMarker = new google.maps.Marker({
+                    position: endPos, map: map, label: "C"});
+                showSteps_two(result, firstLeg.distance.text, firstLeg.duration.text);
+            } else {
+                console.log(status);
+            }
+        });
+    }
+
+    function showSteps_two(result, distance, duration) {
+        var firstSteps = result.routes[0].legs[0].steps;
+        var firstLeg = result.routes[0].legs[0];
+
+        for (var x=0; x < firstSteps.length; x++) {
+            $("#route-directions").append("<h4><li>" + firstSteps[x].instructions + "</li></h4>");
+        }
+        $("#time-distance").append("<h5>Total Time: approx " + duration + " then " + firstLeg.duration.text +
+            "<br>Total Distance: " + distance + " then " + firstLeg.distance.text + "</h5>");
+
         $("#toggles").show();
     }
 
