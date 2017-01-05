@@ -70,8 +70,8 @@
                 placesService.nearbySearch(request, function(results, status) {
                     if (status == google.maps.GeocoderStatus.OK) {
                         shop = {}
-                        shop.location = results[1].geometry.location;
-                        shop.name = results[1].name;
+                        shop.location = results[0].geometry.location;
+                        shop.name = results[0].name;
                         window.donutShop = shop;
                         var placeMarker = new google.maps.Marker({
                             position: shop, map: map});
