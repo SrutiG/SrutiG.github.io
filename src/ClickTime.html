@@ -198,9 +198,11 @@
 
         for (var x=0; x < firstSteps.length; x++) {
             $route_directions.append("<h4><li>" + firstSteps[x].instructions + "</li></h4>");
+            $route_directions.append("<h6>" + firstSteps[x].distance.text + "<h6>");
         }
         for (var y=0; y < secondSteps.length; y++) {
             $route_directions.append("<h4><li>" + secondSteps[y].instructions + "</li></h4>");
+            $route_directions.append("<h6>" + secondSteps[y].distance.text + "<h6>");
         }
         $time_distance.append("<h5>Total Time: approx " + legs.duration +
             "<br>Total Distance: " + legs.distance + "</h5>");
@@ -248,6 +250,7 @@
 
         for (var x=0; x < firstSteps.length; x++) {
             $route_directions.append("<h4><li>" + firstSteps[x].instructions + "</li></h4>");
+            $route_directions.append("<h6>" + firstSteps[x].distance.text + "<h6>");
         }
         $steps_loading.hide();
         var second_request = {
@@ -281,6 +284,7 @@
 
         for (var x=0; x < firstSteps.length; x++) {
             $route_directions.append("<h4><li>" + firstSteps[x].instructions + "</li></h4>");
+            $route_directions.append("<h6>" + firstSteps[x].distance.text + "<h6>");
         }
         $time_distance.append("<h5>Total Time: approx " + duration + " then " + firstLeg.duration.text +
             "<br>Total Distance: " + distance + " then " + firstLeg.distance.text + "</h5>");
