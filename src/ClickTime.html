@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset='utf-8'>
-    <title>Sruti Guhathakurta's Website</title>
+    <title>ClickTime Project</title>
     <meta name = 'description' content = "Sruti Guhathakurta's Website">
     <meta name = 'author' content = "Sruti Guhathakurta">
     <script type="text/javascript" src="static/scripts/jquery.min.js"></script>
@@ -38,6 +38,13 @@
     </div>
 
     <script>
+
+    var $mode_btn = $(".mode-btn");
+    var $steps_loading = $("#steps-loading");
+    var $route_directions = $("#route-directions");
+    var $time_distance = $("#time-distance");
+    var $toggles = $("#toggles");
+
     function initMap() {
         var start;
         var end;
@@ -51,6 +58,9 @@
         directionsService = new google.maps.DirectionsService;
         placesService = new google.maps.places.PlacesService(map);
 
+
+        // geocode the address of ClickTime and temporarily center the map on that location
+
         var address = "282 2nd Street 4th floor, San Francisco, CA 94105";
         var bounds = new google.maps.LatLngBounds();
         geocoder = new google.maps.Geocoder();
@@ -60,6 +70,12 @@
                 bounds.extend(results[0].geometry.location);
                 end = results[0].geometry.location;
                 window.endPos = end;
+
+                /**
+                * (Places Library) find a coffee shop within a 500 meter radius of ClickTime
+                * that contains the keyword donut. Use the first result.
+                **/
+
                 var request = {
                     location: end,
                     radius: '500',
@@ -85,15 +101,21 @@
                 alert(status);
             }
         });
+
+        // find the location of the user using HTML5 geolocation
+
         getLocation();
         function getLocation() {
             if (navigator.geolocation) {
                 navigator.geolocation.getCurrentPosition(showPosition);
             } else {
-                console.log("Geolocation is not supported by this browser");
+                window.alert("Geolocation is not supported by this browser");
                 return 0;
             }
         }
+
+        // extend the bounds of the map view to include the user's location
+
         function showPosition(position) {
             var latitude = position.coords.latitude;
             var longitude = position.coords.longitude;
@@ -104,7 +126,13 @@
             map.fitBounds(bounds);
             calcRoute(start, end);
         }
-        function calcRoute(start, end) {
+
+        /**
+        * by default, calculate a walking route that starts at the user's
+        * location and stops at a donut shop before reaching ClickTime
+        **/
+
+        function calcRoute() {
             var request = {
                 origin: start,
                 destination: end,
@@ -123,15 +151,21 @@
         }
     }
 
+    /**
+    * whenever a button is clicked, change the transport method
+    * and calculate a new route with the same stopping point.
+    * render this route on the map.
+    **/
+
     function calcRoute(transportMethod, button) {
         window.line;
         window.transitMarker;
-        $(".mode-btn").removeClass("active");
+        $mode_btn.removeClass("active");
         $(button).addClass("active");
-        $("#steps-loading").show();
-        $("#route-directions").empty();
-        $("#time-distance").empty();
-        $("#toggles").hide();
+        $steps_loading.show();
+        $route_directions.empty();
+        $time_distance.empty();
+        $toggles.hide();
         if (typeof line !== 'undefined' && typeof transitMarker !== 'undefined') {
             line.setMap(null);
             transitMarker.setMap(null);
@@ -152,6 +186,8 @@
         });
     }
 
+    // display the steps to the coffee shop and then to the destination
+
     function showSteps(result) {
         var firstSteps = result.routes[0].legs[0].steps;
         var secondSteps = result.routes[0].legs[1].steps;
@@ -161,24 +197,32 @@
         legs.distance = firstLeg.distance.text + " then " + secondLeg.distance.text;
 
         for (var x=0; x < firstSteps.length; x++) {
-            $("#route-directions").append("<h4><li>" + firstSteps[x].instructions + "</li></h4>");
+            $route_directions.append("<h4><li>" + firstSteps[x].instructions + "</li></h4>");
+            $route_directions.append("<h6>" + firstSteps[x].distance.text + "<h6>");
         }
         for (var y=0; y < secondSteps.length; y++) {
-            $("#route-directions").append("<h4><li>" + secondSteps[y].instructions + "</li></h4>");
+            $route_directions.append("<h4><li>" + secondSteps[y].instructions + "</li></h4>");
+            $route_directions.append("<h6>" + secondSteps[y].distance.text + "<h6>");
         }
-        $("#time-distance").append("<h5>Total Time: approx " + legs.duration +
+        $time_distance.append("<h5>Total Time: approx " + legs.duration +
             "<br>Total Distance: " + legs.distance + "</h5>");
-        $("#steps-loading").hide();
-        $("#toggles").show();
+        $steps_loading.hide();
+        $toggles.show();
     }
 
+    /**
+    * Unfortunately, google maps directions service doesn't support waypoints for
+    * transit. Instead, calculate a route first to just the coffee shop from the
+    * starting point and render it on the map.
+    **/
+
     function calcRouteTransit(button) {
-        $(".mode-btn").removeClass("active");
+        $mode_btn.removeClass("active");
         $(button).addClass("active");
-        $("#steps-loading").show();
-        $("#route-directions").empty();
-        $("#time-distance").empty();
-        $("#toggles").hide();
+        $steps_loading.show();
+        $route_directions.empty();
+        $time_distance.empty();
+        $toggles.hide();
         var request = {
             origin: startPos,
             destination: donutShop.location,
@@ -187,7 +231,7 @@
         directionsService.route(request, function(result, status) {
             if (status == 'OK') {
                 directionsDisplay.setDirections(result);
-                showBasicSteps(result);
+                showFirstSteps(result);
             } else {
                 console.log(status);
             }
@@ -195,14 +239,20 @@
 
     }
 
-    function showBasicSteps(result) {
+    /**
+    * show the steps from the starting point to the coffee shop
+    * and route the second leg of the trip and render it on the map
+    **/
+
+    function showFirstSteps(result) {
         var firstSteps = result.routes[0].legs[0].steps;
         var firstLeg = result.routes[0].legs[0];
 
         for (var x=0; x < firstSteps.length; x++) {
-            $("#route-directions").append("<h4><li>" + firstSteps[x].instructions + "</li></h4>");
+            $route_directions.append("<h4><li>" + firstSteps[x].instructions + "</li></h4>");
+            $route_directions.append("<h6>" + firstSteps[x].distance.text + "<h6>");
         }
-        $("#steps-loading").hide();
+        $steps_loading.hide();
         var second_request = {
             origin: donutShop.location,
             destination: endPos,
@@ -226,17 +276,20 @@
         });
     }
 
+    // show the steps for the second leg of the trip
+
     function showSteps_two(result, distance, duration) {
         var firstSteps = result.routes[0].legs[0].steps;
         var firstLeg = result.routes[0].legs[0];
 
         for (var x=0; x < firstSteps.length; x++) {
-            $("#route-directions").append("<h4><li>" + firstSteps[x].instructions + "</li></h4>");
+            $route_directions.append("<h4><li>" + firstSteps[x].instructions + "</li></h4>");
+            $route_directions.append("<h6>" + firstSteps[x].distance.text + "<h6>");
         }
-        $("#time-distance").append("<h5>Total Time: approx " + duration + " then " + firstLeg.duration.text +
+        $time_distance.append("<h5>Total Time: approx " + duration + " then " + firstLeg.duration.text +
             "<br>Total Distance: " + distance + " then " + firstLeg.distance.text + "</h5>");
 
-        $("#toggles").show();
+        $toggles.show();
     }
 
 
