@@ -119,7 +119,7 @@
         function showPosition(position) {
             var latitude = position.coords.latitude;
             var longitude = position.coords.longitude;
-            var position = {lat: 37.7721, lng: -122.3122};
+            var position = {lat: latitude, lng: longitude};
             bounds.extend(position);
             start = position;
             window.startPos = start;
@@ -249,10 +249,7 @@
         var firstLeg = result.routes[0].legs[0];
 
         for (var x=0; x < firstSteps.length; x++) {
-            var display = typeof firstSteps[x].transit === 'undefined' ?
-                firstSteps[x].instructions : firstSteps[x].instructions
-                + ". Get off at " + firstSteps[x].transit.arrival_stop.name;
-            $route_directions.append("<h4><li>" + display + "</li></h4>");
+            $route_directions.append("<h4><li>" + firstSteps[x].instructions + "</li></h4>");
             $route_directions.append("<h6>" + firstSteps[x].distance.text + "<h6>");
         }
         $steps_loading.hide();
@@ -286,10 +283,7 @@
         var firstLeg = result.routes[0].legs[0];
 
         for (var x=0; x < firstSteps.length; x++) {
-            var display = typeof firstSteps[x].transit === 'undefined' ?
-                firstSteps[x].instructions : firstSteps[x].instructions
-                + ". Get off at " + firstSteps[x].transit.arrival_stop.name;
-            $route_directions.append("<h4><li>" + display + "</li></h4>");
+            $route_directions.append("<h4><li>" + firstSteps[x].instructions + "</li></h4>");
             $route_directions.append("<h6>" + firstSteps[x].distance.text + "<h6>");
         }
         $time_distance.append("<h5>Total Time: approx " + duration + " then " + firstLeg.duration.text +
