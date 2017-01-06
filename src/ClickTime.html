@@ -91,7 +91,6 @@
                         window.donutShop = shop;
                         var placeMarker = new google.maps.Marker({
                             position: shop, map: map});
-                        getLocation();
                     } else {
                         window.alert("no shops found");
                     }
@@ -105,6 +104,7 @@
 
         // find the location of the user using HTML5 geolocation
 
+        getLocation();
         function getLocation() {
             if (navigator.geolocation) {
                 navigator.geolocation.getCurrentPosition(showPosition);
